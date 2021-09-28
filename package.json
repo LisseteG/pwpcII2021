@@ -3,14 +3,25 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./server/bin/www" 
+    "start": "node ./server/bin/www"
   },
   "dependencies": {
+    "babel-node": "0.0.1-security",
+    "babel-preset-env": "^1.7.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "hbs": "^4.1.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-watch": "^7.5.0"
   }
 }
