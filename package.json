@@ -2,12 +2,10 @@
   "name": "projnotes",
   "version": "0.0.0",
   "private": true,
-
   "scripts": {
     "start": "node ./server/bin/www",
     "w:L": "babel-watch ./server/bin/www"
   },
-
   "dependencies": {
     "babel-node": "0.0.1-security",
     "babel-preset-env": "^1.7.0",
@@ -16,7 +14,8 @@
     "express": "~4.16.1",
     "hbs": "^4.1.2",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
