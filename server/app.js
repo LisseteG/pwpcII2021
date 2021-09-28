@@ -1,4 +1,4 @@
-var createError = require('http-errors');
+/*var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -6,6 +6,18 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+var app = express(); */
+
+//Importar dependencias
+import createError from 'http-errors'
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+
+import indexRouter from'./routes/index';
+import usersRouter from './routes/users';
 
 var app = express();
 
