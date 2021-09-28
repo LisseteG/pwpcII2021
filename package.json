@@ -2,9 +2,12 @@
   "name": "projnotes",
   "version": "0.0.0",
   "private": true,
+
   "scripts": {
-    "start": "node ./server/bin/www"
+    "start": "node ./server/bin/www",
+    "w:L": "babel-watch ./server/bin/www"
   },
+
   "dependencies": {
     "babel-node": "0.0.1-security",
     "babel-preset-env": "^1.7.0",
