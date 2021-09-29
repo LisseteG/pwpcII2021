@@ -6,7 +6,7 @@
     "start": "node ./dist-server/bin/www",
     "w:L": "babel-watch ./server/bin/www",
     "clean": "rimraf prueba",
-    "b:s" : "npm run clean && babel ./server --out-dir dist-server --copy-files"
+    "b:s": "npm run clean && babel ./server --out-dir dist-server --copy-files"
   },
   "dependencies": {
     "babel-node": "0.0.1-security",
@@ -26,6 +26,7 @@
     "@babel/preset-env": "^7.15.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-module-resolver": "^4.1.0",
     "babel-watch": "^7.5.0",
     "cross-env": "^7.0.3"
   }
