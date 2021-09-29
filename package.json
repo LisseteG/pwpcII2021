@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./server/bin/www",
-    "w:L": "babel-watch ./server/bin/www"
+    "w:L": "babel-watch ./server/bin/www",
+    "clean":"rimraf prueba"
   },
   "dependencies": {
     "babel-node": "0.0.1-security",
