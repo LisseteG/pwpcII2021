@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "set NODE_ENV= production&& node ./dist-server/bin/www",
-    "w:L": "set NODE_ENV= development&& babel-watch ./server/bin/www",
+    "start": "cross-env NODE_ENV=production node ./dist-server/bin/www",
+    "w:L": "cross-env NODE_ENV=development babel-watch ./server/bin/www",
     "clean": "rimraf prueba",
-    "b:s": "npm run clean && babel ./server --out-dir dist-server --copy-files"
+    "b:s": "npm run clean && babel ./server --out-dir dist-server --copy-files",
+    "w:s": "cross-env NODE_ENV=development webpack serve --config ./webpack.config.js --mode development"
   },
   "dependencies": {
     "babel-node": "0.0.1-security",
@@ -33,7 +34,7 @@
     "webpack": "^5.55.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-middleware": "^5.2.1",
-    "webpack-dev-server": "^4.3.0",
+    "webpack-dev-server": "^4.3.1",
     "webpack-hot-middleware": "^2.25.1"
   }
 }
