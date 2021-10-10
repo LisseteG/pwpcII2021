@@ -13,11 +13,16 @@ module.exports = {
         //5.- Ruta del path público para fines del servidor de desarrollo
         publicPath: '/'
     },
+    devServer: {
+        static: path.join(__dirname, 'public'),
+        port: 8085,
+        host: 'localhost'
+    },
     module: {
         rules: [
             {
                 test: /\.js$/, //Tipos de archivo para aplicar configuraciones
-                exclude:/(node_modules|bower_components)/, //Excluir archivos para no transpilar
+                exclude: /(node_modules|bower_components)/, //Excluir archivos para no transpilar
                 use: [
                     {
                         loader: 'babel-loader',
@@ -28,7 +33,7 @@ module.exports = {
                                     {
                                         'modules': false,
                                         'useBuiltIns': 'usage', //Cómo va a trabajar babel con las config
-                                        'targets': ">0.25%, not dead", //Que tan compatible tiene que ser el código javascript para compilar {"chrome":"80"}
+                                        'targets': {"chrome":"80"}, //Que tan compatible tiene que ser el código javascript para compilar
                                         'corejs': 3 //Librerias para generar código que no exista en versiones a transpilar e instalar core-js
 
                                     }

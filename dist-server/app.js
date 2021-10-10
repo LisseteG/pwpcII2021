@@ -11,6 +11,6 @@ var app = express(); */ //Importar dependencias
 var app=(0,_express.default)();// view engine setup
 // catch 404 and forward to error handler
 // error handler
-app.set("views",_path.default.join(__dirname,"views")),app.set("view engine","hbs"),app.use((0,_morgan.default)("dev")),app.use(_express.default.json()),app.use(_express.default.urlencoded({extended:!1})),app.use((0,_cookieParser.default)()),app.use(_express.default.static(_path.default.join(__dirname,"public"))),app.use("/",_routes.default),app.use("/users",_users.default),app.use(function(a,b,c){c((0,_httpErrors.default)(404))}),app.use(function(a,b,c){// set locals, only providing error in development
+app.set("views",_path.default.join(__dirname,"views")),app.set("view engine","hbs"),app.use((0,_morgan.default)("dev")),app.use(_express.default.json()),app.use(_express.default.urlencoded({extended:!1})),app.use((0,_cookieParser.default)()),app.use(_express.default.static(_path.default.join(__dirname,"..","public"))),app.use("/",_routes.default),app.use("/users",_users.default),app.use(function(a,b,c){c((0,_httpErrors.default)(404))}),app.use(function(a,b,c){// set locals, only providing error in development
 // render the error page
 c.locals.message=a.message,c.locals.error="development"===b.app.get("env")?a:{},c.status(a.status||500),c.render("error")}),module.exports=app;
