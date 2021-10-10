@@ -3,7 +3,7 @@ import './stylesheets/mystyle.css'
 
 console.log("Webpack working!");
 // Default parameters están disponibles solamente en ES6/2015
-let show = (m = "Lissete") => {
+let show = (m = "Hot module replacement working ") => {
     alert(m)
 };
 
