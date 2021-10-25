@@ -1,15 +1,31 @@
-var express = require('express');
-var router = express.Router();
+//var express = require('express');
+//import { Router } from 'express';
+//Importar el router de Home
+import homeRouter from './home';
+//Importando router de users
+import userRouter from './users';
+//const router = new Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', Student: 'G A L', company: 'AwSotf'});
-});
+//router.use('/', homeRouter);
+//router.use('/user', userRouter);
 
 /*Agregar nueva ruta */
-router.get('/Hola',function (req, res, next){
-  res.status(200).json({message: '¡Soy Lissete!'})
-}
-)
+//router.get('/Hola', function (req, res) {
+//res.status(200).json({ message: '¡Soy Lissete!' });
+//});
+//router.get('/hola',)
 
-module.exports = router;
+//Agregando las rutas a la apl
+const addRoutes = (app) => {
+  app.use('/', homeRouter);
+  app.use('/user', userRouter);
+
+  return app;
+};
+
+export default {
+  addRoutes,
+};
+
+//module.exports = router;
