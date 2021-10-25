@@ -3,6 +3,7 @@
 /**
  * Module dependencies.
  */
+import winston from '@server/config/winston';
 
 var app = require('../app');
 var debug = require('debug')('projnotes:server');
@@ -58,18 +59,18 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      //console.error(bind + ' requires elevated privileges');
+      winston.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      winston.error(`${bind} is alredy in use`);
+      //console.error(bind + ' is already in use');
       process.exit(1);
       break;
     default:
@@ -83,8 +84,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
