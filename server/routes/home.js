@@ -7,10 +7,13 @@ import homeControllers from '@server/controllers/homeControllers';
 const router = new Router();
 
 //Petición GET que se haga a la ruta raíz
-router.get('/', homeControllers.index);
+router.get(['/', '/index'], homeControllers.index);
 
 //GET '/hola'
 router.get('/hola', homeControllers.hola);
+
+//GET '/about'
+router.get('/about', homeControllers.about);
 
 //Exportando el router que maneja las subrutas para el controlador home Conectando a router padre
 export default router;

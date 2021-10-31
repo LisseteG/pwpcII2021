@@ -1,5 +1,5 @@
 const index = (req, res) => {
-  res.render('index', {
+  res.render('home/index', {
     title: 'ProjNotes',
     Student: 'Lissete',
   });
@@ -11,7 +11,13 @@ const hola = (req, res) => {
   });
 };
 
+//About
+const about = (req, res) => {
+  res.render('home/about', { title: 'Acerca de ProjNotes' });
+};
+
 export default {
   index,
   hola,
+  about,
 };
