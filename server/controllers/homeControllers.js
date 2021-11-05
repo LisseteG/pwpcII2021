@@ -13,7 +13,7 @@ const hola = (req, res) => {
 
 //About
 const about = (req, res) => {
-  res.render('home/about', { title: 'Acerca de ProjNotes' });
+  res.render('home/about', { appVersion: '0.0.1' });
 };
 
 export default {
