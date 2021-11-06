@@ -5,6 +5,9 @@
  */
 import winston from '@server/config/winston';
 
+//Importando config de aplicación
+import configKeys from '@server/config/winston';
+
 var app = require('../app');
 var debug = require('debug')('projnotes:server');
 var http = require('http');
@@ -13,7 +16,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(configKeys.port || '5000');
 app.set('port', port);
 
 /**
