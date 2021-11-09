@@ -6,6 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const sideNav = document.querySelectorAll('.sidenav');
   // eslint-disable-next-line no-undef
   M.Sidenav.init(sideNav);
+  //Iniciando dropdown
+  document
+    .querySelectorAll('.dropdown-trigger')
+    // eslint-disable-next-line no-undef
+    .forEach((dropdown) => M.Dropdown.init(dropdown));
+  //const dropdowns = document.querySelectorAll('.dropdown-trigger');
+  //for (let i = 0; i < dropdowns.length; i++) {
+  //  // eslint-disable-next-line no-undef
+  //  M.Dropdown.init(dropdowns[i]);
+  //}
+  // eslint-disable-next-line no-undef
+  //dropdowns.forEach((dropdown) => M.Dropdown.init(dropdown));
 });
 
 //console.log('Webpack working!');
