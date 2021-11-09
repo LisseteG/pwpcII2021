@@ -6,7 +6,10 @@
 import winston from '@server/config/winston';
 
 //Importando config de aplicación
-import configKeys from '@server/config/winston';
+import configKeys from '@server/config/configKeys';
+
+//Importando la clase de conexión
+import MongooseODM from '@server/config/odm';
 
 var app = require('../app');
 var debug = require('debug')('projnotes:server');
@@ -16,7 +19,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(configKeys.port || '5000');
+var port = normalizePort(configKeys.port || '3000');
 app.set('port', port);
 
 /**
@@ -24,14 +27,6 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -90,3 +85,24 @@ function onListening() {
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+//Creando el objeto de conexión
+const mongooseOdm = new MongooseODM(configKeys.databaseUrl);
+//IIFE
+(async () => {
+  try {
+    const connectionResult = await mongooseOdm.connect();
+    if (connectionResult) {
+      winston.info('Connection to database has successfuly established');
+      /**
+       * Listen on provided port, on all network interfaces.
+       */
+
+      server.listen(port);
+      server.on('error', onError);
+      server.on('listening', onListening);
+    }
+  } catch (error) {
+    winston.error(`Error when connecting to Database: ${error.message}`);
+  }
+})();

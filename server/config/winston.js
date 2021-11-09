@@ -8,11 +8,11 @@ const { combine, timestamp, printf, uncolorize, colorize, json } = format;
 
 // Creando el Perfil de color para el log
 const colors = {
-  error: '#FA163F',
-  warn: '#FBFF00',
-  info: '#49FF00',
-  http: '#FF0075',
-  debug: '#28DF99',
+  error: 'red',
+  warn: 'yellow',
+  info: 'cyan',
+  http: 'blue',
+  debug: 'green',
 };
 // Agregando el Perfil a winston
 winston.addColors(colors);
