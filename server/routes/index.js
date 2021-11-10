@@ -5,8 +5,11 @@ import homeRouter from './home';
 //Importando router de users
 import userRouter from './users';
 //const router = new Router();
+//Importando router de projects
+import projectRouter from './project';
 
 /* GET home page. */
+
 //router.use('/', homeRouter);
 //router.use('/user', userRouter);
 
@@ -18,7 +21,11 @@ import userRouter from './users';
 
 //Agregando las rutas a la apl
 const addRoutes = (app) => {
+  //Home routes
   app.use('/', homeRouter);
+  //Project Routes
+  app.use('/projects', projectRouter);
+
   app.use('/user', userRouter);
 
   return app;
